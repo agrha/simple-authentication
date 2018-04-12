@@ -39,14 +39,15 @@ export default {
         .then(response => {
           alert('login success')
           console.log(response.data)
-          localStorage.setItem('token',response.data.token)
-          localStorage.setItem('id',response.data.id)
-          localStorage.setItem('username',response.data.username)
+          localStorage.setItem('token', response.data.token)
+          localStorage.setItem('id', response.data.id)
+          localStorage.setItem('username', response.data.username)
           this.$router.push('/landing')
         })
         .catch(err => {
-          alert('login fail')
+          alert('login fail mas, barangkali ngetik passwordnya salah')
           console.log(err)
+          location.reload()
         })
     }
   }

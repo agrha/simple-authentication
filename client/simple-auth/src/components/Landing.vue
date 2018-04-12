@@ -13,7 +13,7 @@ export default {
   data () {
     return {
       token: localStorage.getItem('token'),
-      username : localStorage.getItem('username'),
+      username: localStorage.getItem('username'),
       id: localStorage.getItem('id')
     }
   },

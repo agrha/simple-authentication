@@ -5,15 +5,18 @@
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input v-model="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+        <div class="invalid-feedback">Email Tidak Boleh Kosong</div>
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Username</label>
         <input v-model="username" type="text" class="form-control" placeholder="Username">
+        <div class="invalid-feedback">Username tidak Boleh Kosong</div>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
         <input v-model="password" type="password" class="form-control"  placeholder="Password">
+        <div class="invalid-feedback">Password tidak Boleh Kosong</div>
       </div>
       <button type="submit" @click="signup" class="btn btn-primary">Submit</button>
       <button type="submit" @click="toLogin" class="btn btn-primary">To Login Page</button>
@@ -29,6 +32,17 @@ export default {
       email: '',
       username: '',
       password: ''
+    }
+  },
+  computed: {
+    missingUsername () {
+      return this.username === ''
+    },
+    missingPassword () {
+      return this.password === ''
+    },
+    missingEmail () {
+      return this.email === ''
     }
   },
   methods: {
@@ -47,10 +61,16 @@ export default {
           this.$router.push('/')
         })
         .catch(err => {
-          alert('fail to create user')
+          alert('create user failed')
           console.log(err)
           // location.reload()
         })
+    },
+    validateForm () {
+      this.attemptSubmit = true
+      if (this.missingPassword || this.missingEmail || this.missingUsername) {
+        event.preventDefault()
+      }
     }
   }
 }
