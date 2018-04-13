@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="#">Navbar</a>
-      <button type="submit" @click="logout" class="btn btn-primary">Log Out</button>
+      <button type="submit" @click="logout" class="btn btn-primary">Log</button>
     </nav>
   </div>
 </template>

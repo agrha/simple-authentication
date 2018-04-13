@@ -4,18 +4,18 @@
       <h1>REGISTER PAGE</h1>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
-        <input :class="{ 'is-invalid': attemptSubmit && missingEmail }" v-model="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+        <input :class="{ 'invalid-feedback': attemptSubmit && missingEmail }" v-model="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
         <div class="invalid-feedback">Email Tidak Boleh Kosong</div>
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Username</label>
-        <input :class="{ 'is-invalid': attemptSubmit && missingUsername }" v-model="username" type="text" class="form-control" placeholder="Username">
+        <input :class="{ 'invalid-feedback': attemptSubmit && missingUsername }" v-model="username" type="text" class="form-control" placeholder="Username">
         <div class="invalid-feedback">Username tidak Boleh Kosong</div>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
-        <input :class="{ 'is-invalid': attemptSubmit && missingPassword }" v-model="password" type="password" class="form-control"  placeholder="Password">
+        <input :class="{ 'invalid-feedback': attemptSubmit && missingPassword }" v-model="password" type="password" class="form-control"  placeholder="Password">
         <div class="invalid-feedback">Password tidak Boleh Kosong</div>
       </div>
       <button type="submit" @submit="validateForm" @click="signup" class="btn btn-primary">Submit</button>
